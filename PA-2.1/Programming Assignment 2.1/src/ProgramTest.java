@@ -32,7 +32,7 @@ class ProgramTest {
         var expected = (int)doubleArray[0] / doubleArray[1];
 
         // Act
-        var result = _sut.numberOfUnitsPerSquare((int)doubleArray[0], doubleArray[1]);
+        var result = _sut.numberOfKangaroosPerSquareKilometer((int)doubleArray[0], doubleArray[1]);
 
         // Assert
         assertEquals(expected, result);
