@@ -1,17 +1,10 @@
-//*********************************************************************************************************************
-// The program needs to get the following information from the user:
-// - The length of the side of the square of land (in kilometers).
-// - The length of the roads running through the square (in kilometers).
-// - The number of kangaroos living in that square.
-//*********************************************************************************************************************
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
 
 /** Christian Oleson
  * MSI-503
- * Assignment 1
+ * Assignment 2.1
  */
 public class Program {
     /** This constant is the average road width in Kilometers. 1 Km = 1000 m */
@@ -19,10 +12,6 @@ public class Program {
     /** This constant is probability coefficient that a kangaroo will be killed. */
     public static final double ROAD_KILL_PROBABILITY_CONSTANT = 1.47;
 
-    /** The main method where we enter the program. We ask for input here and offload processing to another method.
-     * This is very procedural in nature.
-     * @param args We do nothing with the passed in args at the moment. Some security scanners will flag this as a threat
-     * */
     public static void main(String[] args) {
         var scanner = new Scanner(System.in);
         System.out.print("Enter the side length of the square of land (in kilometers): ");
