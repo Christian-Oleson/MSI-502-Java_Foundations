@@ -27,6 +27,6 @@ public class Countdown {
         // But if I don't add a return, it's rather hard to read. So ¯\_(ツ)_/¯
         System.out.print("println(\"This is how you would print a line in Kotlin\")\n");
         System.out.print("print(\"And this is how you just print in Kotlin\")\n");
-        System.out.print("Console.WriteLine(\"\"This is how you would print a line in C#\"\")\n");
+        System.out.print("Console.WriteLine(\"This is how you would print a line in C#\");\n");
     }
 }
