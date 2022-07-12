@@ -9,7 +9,7 @@ import java.util.Scanner;
  * Likewise, it continues to iterate on potential values, incrementing the fahrenheit value by 10 each time for a total of 20 values.
  * @author Christian Oleson
  */
-public class Program {
+public class OlesonChristian_Assignment2_3 {
     public static void main(String[] args) {
         var input = new Scanner(System.in);
         var fahrenheit = TemperatureConverter.readValidFahrenheitValue(input);
@@ -26,13 +26,12 @@ public class Program {
 
         System.out.println(stringBuilder);
     }
-
 }
 
 /** TemperatureConverter class
  * @author Christian Oleson
  * @version 1.0
- * @see Program
+ * @see OlesonChristian_Assignment2_3
  */
 class TemperatureConverter {
     /** Converts a temperature in Fahrenheit to Celsius
