@@ -1,10 +1,10 @@
-package test;
+package OlesonChristian_TestCheckup;
 
 import io.micronaut.configuration.picocli.PicocliRunner;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "test", description = "...",
+@Command(name = "OlesonChristian_TestCheckup", description = "...",
         mixinStandardHelpOptions = true)
 public class TestCommand implements Runnable {
 

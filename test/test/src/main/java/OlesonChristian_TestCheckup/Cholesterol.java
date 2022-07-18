@@ -1,4 +1,4 @@
-package test;
+package OlesonChristian_TestCheckup;
 
 public class Cholesterol {
     private int _ldl;

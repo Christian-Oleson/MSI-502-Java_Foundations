@@ -3,8 +3,9 @@ plugins {
     id("io.micronaut.application") version "3.4.1"
 }
 
-version = "0.1"
-group = "test"
+// uncomment if you want a version
+// version = "0.1"
+group = "OlesonChristian_TestCheckup"
 
 repositories {
     mavenCentral()
@@ -24,7 +25,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("test.TestCommand")
+    mainClass.set("OlesonChristian_TestCheckup.TestCommand")
 }
 
 java {
@@ -32,7 +33,7 @@ java {
     targetCompatibility = JavaVersion.toVersion("11")
 }
 
-mainClassName = "test.TestCommand"
+mainClassName = "OlesonChristian_TestCheckup.OlesonChristian_TestCheckup"
 
 apply plugin: 'java'
 
@@ -50,9 +51,6 @@ micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("test.*")
+        annotations("OlesonChristian_TestCheckup.*")
     }
 }
-
-
-

@@ -1,4 +1,4 @@
-package test;
+package OlesonChristian_TestCheckup;
 
 import io.micronaut.configuration.picocli.PicocliRunner;
 import io.micronaut.context.ApplicationContext;
@@ -21,7 +21,7 @@ public class TestCommandTest {
             String[] args = new String[] { "-v" };
             PicocliRunner.run(TestCommand.class, ctx, args);
 
-            // test
+            // OlesonChristian_TestCheckup
             assertTrue(baos.toString().contains("Hi!"));
         }
     }

@@ -1,4 +1,4 @@
-package test;
+package OlesonChristian_TestCheckup;
 
 public class OlesonChristian_Checkup {
     private int _patientNumber;
