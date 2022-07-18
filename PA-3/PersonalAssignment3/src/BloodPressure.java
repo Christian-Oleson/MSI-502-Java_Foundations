@@ -8,22 +8,6 @@ public class BloodPressure {
     }
 
     /**
-     * Gets the Systolic Blood Pressure
-     * @return the Systolic Blood Pressure
-     */
-    public int getSystolicBloodPressure() {
-        return _systolicBloodPressure;
-    }
-
-    /**
-     * Gets the Diastolic Blood Pressure
-     * @return the Diastolic Blood Pressure
-     */
-    public int getDiastolicBloodPressure() {
-        return _diastolicBloodPressure;
-    }
-
-    /**
      * Sets the Systolic Blood Pressure
      * @param systolicBloodPressure the Systolic Blood Pressure to set
      */

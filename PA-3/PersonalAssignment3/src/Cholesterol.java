@@ -8,24 +8,6 @@ public class Cholesterol {
     }
 
     /**
-     * Gets the LDL
-     * @return LDL
-     */
-    public int getLdl() {
-        System.out.println("Getting LDL...");
-        return _ldl;
-    }
-
-    /**
-     * Gets the HDL
-     * @return HDL
-     */
-    public int getHdl() {
-        System.out.println("Getting HDL...");
-        return _hdl;
-    }
-
-    /**
      * Sets the LDL
      * @param ldl the LDL to set
      */
@@ -41,6 +23,14 @@ public class Cholesterol {
     public void setHdl(int hdl) {
         System.out.println("Setting HDL...");
         _hdl = hdl;
+    }
+
+    /**
+     * @return Computers the ratio of HDL to LDL.
+     */
+    public double computeRatio() {
+        System.out.println("Computing ratio...");
+        return (double) _hdl / (double) _ldl;
     }
 
     /**
