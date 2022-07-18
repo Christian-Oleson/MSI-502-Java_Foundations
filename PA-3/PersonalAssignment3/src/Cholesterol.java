@@ -12,6 +12,7 @@ public class Cholesterol {
      * @return LDL
      */
     public int getLdl() {
+        System.out.println("Getting LDL...");
         return _ldl;
     }
 
@@ -20,6 +21,7 @@ public class Cholesterol {
      * @return HDL
      */
     public int getHdl() {
+        System.out.println("Getting HDL...");
         return _hdl;
     }
 
@@ -28,6 +30,7 @@ public class Cholesterol {
      * @param ldl the LDL to set
      */
     public void setLdl(int ldl) {
+        System.out.println("Setting LDL...");
         _ldl = ldl;
     }
 
@@ -36,6 +39,7 @@ public class Cholesterol {
      * @param hdl the HDL to set
      */
     public void setHdl(int hdl) {
+        System.out.println("Setting HDL...");
         _hdl = hdl;
     }
 
@@ -43,6 +47,7 @@ public class Cholesterol {
      * @return the string representation of the cholesterol
      */
     public String toString() {
+        System.out.println("Printing cholesterol...");
         return "Cholesterol [\n\tLDL: " + _ldl + ",\n\tHDL: " + _hdl + "\n]";
     }
 }

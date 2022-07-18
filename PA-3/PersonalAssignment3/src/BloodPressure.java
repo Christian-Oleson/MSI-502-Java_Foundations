@@ -28,6 +28,7 @@ public class BloodPressure {
      * @param systolicBloodPressure the Systolic Blood Pressure to set
      */
     public void setSystolicBloodPressure(int systolicBloodPressure) {
+        System.out.println("Setting Systolic Blood Pressure...");
         _systolicBloodPressure = systolicBloodPressure;
     }
 
@@ -36,6 +37,7 @@ public class BloodPressure {
      * @param diastolicBloodPressure the Diastolic Blood Pressure to set
      */
     public void setDiastolicBloodPressure(int diastolicBloodPressure) {
+        System.out.println("Setting Diastolic Blood Pressure...");
         _diastolicBloodPressure = diastolicBloodPressure;
     }
 
@@ -43,6 +45,7 @@ public class BloodPressure {
      * @return the string representation of the blood pressure
      */
     public String toString() {
+        System.out.println("Printing blood pressure...");
         return "Blood Pressure [ \n\tSystolic Blood Pressure: " + _systolicBloodPressure + ", \n\tDiastolic Blood Pressure: " + _diastolicBloodPressure + "\n]";
     }
 }
