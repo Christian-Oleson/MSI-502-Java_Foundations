@@ -8,6 +8,24 @@ public class Cholesterol {
     }
 
     /**
+     * Gets the LDL
+     * @return the LDL (integer)
+     */
+    public int getLdl() {
+        System.out.println("Getting LDL...");
+        return _ldl;
+    }
+
+    /**
+     * Gets the HDL
+     * @return the HDL (integer)
+     */
+    public int getHdl() {
+        System.out.println("Getting HDL...");
+        return _hdl;
+    }
+
+    /**
      * Sets the LDL
      * @param ldl the LDL to set
      */
