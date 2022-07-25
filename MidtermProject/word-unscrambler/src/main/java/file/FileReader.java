@@ -53,12 +53,15 @@ public class FileReader implements Reader {
         var scanner = new Scanner(System.in);
 
         while (!exists) {
-            writer.write("Enter a file name location or press Q to quit");
-            file = scanner.next();
+            writer.write("Enter a file name location, press E for the default, or press Q to quit");
 
             if (file.equalsIgnoreCase("Q")) {
                 writer.write("Quitting the application...");
                 return "";
+            } else if (file.equalsIgnoreCase("E")) {
+                file = "C:\\words.txt";
+            } else {
+                file = scanner.next();
             }
 
             exists = exists(file);

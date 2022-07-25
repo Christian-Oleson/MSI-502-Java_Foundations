@@ -45,9 +45,9 @@ public class Word {
 
         var scanner = new Scanner(System.in);
         var finished = false;
+        writer.write(wordDto.scrambledWord);
 
         do {
-            writer.write(wordDto.scrambledWord);
             writer.write("Enter 1 to swap a pair of letters.");
             writer.write("Enter 2 to solve.");
             writer.write("Enter 3 to quit.");
@@ -59,9 +59,13 @@ public class Word {
                         wordDto = swapLetters(wordDto, scanner);
                         break;
                     case 2:
+                        validateIfEqual(wordDto, scanner);
+                        finished = true;
                         break;
                     case 3:
                         finished = true;
+                        writer.write("You chose to quit. The word was too difficult for you!");
+                        writer.write("The word was: " + wordDto.word);
                         break;
                 }
             } catch (Exception e) {
@@ -103,8 +107,9 @@ public class Word {
         do {
             var pair = scanner.nextLine();
             if (pair.length() >= 2) {
-                var firstItemInt = Integer.parseInt(pair.substring(0, 1));
-                var lastItemInt = Integer.parseInt(pair.substring(pair.length() - 1));
+                var pairs = pair.split(" ");
+                var firstItemInt = Integer.parseInt(pairs[0]);
+                var lastItemInt = Integer.parseInt(pairs[1]);
                 var firstItemChar = scrambledWord.charAt(firstItemInt);
                 var lastItemChar = scrambledWord.charAt(lastItemInt);
 
@@ -118,7 +123,6 @@ public class Word {
             }
         } while (finished);
 
-        writer.write(wordDto.getScrambledWord());
         return wordDto;
     }
 
@@ -134,5 +138,20 @@ public class Word {
 
         writer.write(intStringBuilder.toString());
         writer.write(charStringBuilder.toString());
+    }
+
+    private boolean validateIfEqual(WordDto wordDto, Scanner scanner) {
+        writer.write("Enter the word you think this is: ");
+        var unscrambledWord = scanner.nextLine();
+        var word = wordDto.getWord();
+        var wordsAreEqual = unscrambledWord.equalsIgnoreCase(word);
+
+        if (wordsAreEqual) {
+            writer.write("You solved the word!");
+        } else {
+            writer.write("You didn't solve the word!");
+        }
+
+        return wordsAreEqual;
     }
 }
