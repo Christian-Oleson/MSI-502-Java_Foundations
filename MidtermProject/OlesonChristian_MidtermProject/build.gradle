@@ -22,7 +22,7 @@ dependencies {
     implementation("io.micronaut:micronaut-validation")
 }
 
-mainClassName = "word.WordUnscramblerCommand"
+mainClassName = "word.OlesonChristian_unscrambler"
 
 application {
     mainClass.set(mainClassName)
@@ -43,6 +43,7 @@ jar {
     manifest {
         attributes 'Main-Class': mainClassName
     }
+    baseName("OlesonChristian_MidtermProject")
 }
 
 micronaut {

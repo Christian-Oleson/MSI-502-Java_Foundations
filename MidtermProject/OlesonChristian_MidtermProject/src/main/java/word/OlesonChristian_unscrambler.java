@@ -23,7 +23,7 @@ import picocli.CommandLine.Option;
  */
 @Command(name = "word-unscrambler", description = "...",
         mixinStandardHelpOptions = true)
-public class WordUnscramblerCommand implements Runnable {
+public class OlesonChristian_unscrambler implements Runnable {
 
     /**
      * If someone passes one of the names below, then the application will read that file
@@ -63,7 +63,7 @@ public class WordUnscramblerCommand implements Runnable {
      * The micronaut entrypoint of any CLI application
      */
     public static void main(String[] args) {
-        PicocliRunner.run(WordUnscramblerCommand.class, args);
+        PicocliRunner.run(OlesonChristian_unscrambler.class, args);
     }
 
     /**

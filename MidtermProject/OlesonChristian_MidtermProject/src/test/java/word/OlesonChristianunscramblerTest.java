@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class WordUnscramblerCommandTest {
+public class OlesonChristianunscramblerTest {
 
     @Test
     public void testWithCommandLineOption() throws Exception {
@@ -19,7 +19,7 @@ public class WordUnscramblerCommandTest {
 
         try (ApplicationContext ctx = ApplicationContext.run(Environment.CLI, Environment.TEST)) {
             String[] args = new String[] { "-v" };
-            PicocliRunner.run(WordUnscramblerCommand.class, ctx, args);
+            PicocliRunner.run(OlesonChristian_unscrambler.class, ctx, args);
 
             // word-unscrambler
             assertTrue(baos.toString().contains("Hi!"));
