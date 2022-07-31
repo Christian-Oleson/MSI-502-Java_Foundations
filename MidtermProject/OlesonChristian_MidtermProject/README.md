@@ -11,4 +11,12 @@
 
 - [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
 
+Assemble with all dependencies into a single JAR
+```bash
+.\gradlew assemble
+```
 
+Run the JAR
+```bash
+java -jar .\OlesonChristian_MidtermProject.jar
+```
