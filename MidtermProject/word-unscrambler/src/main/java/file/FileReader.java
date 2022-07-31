@@ -7,6 +7,11 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * @author Christian Oleson
+ * @version 1.0
+ * A basic FileReader that implements the Reader interface.
+ */
 @Singleton
 public class FileReader implements Reader {
 

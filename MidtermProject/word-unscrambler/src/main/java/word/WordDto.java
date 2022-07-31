@@ -1,5 +1,10 @@
 package word;
 
+/**
+ * @author Christian Oleson
+ * @version 1.0
+ * A DTO for words, including methods to get and set attributes.
+ */
 public class WordDto {
     public String word;
     public String scrambledWord;

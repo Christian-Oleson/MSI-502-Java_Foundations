@@ -22,13 +22,27 @@ dependencies {
     implementation("io.micronaut:micronaut-validation")
 }
 
+mainClassName = "word.unscrambler.WordUnscramblerCommand"
+
 application {
-    mainClass.set("word.unscrambler.WordUnscramblerCommand")
+    mainClass.set(mainClassName)
 }
 
 java {
     sourceCompatibility = JavaVersion.toVersion("17")
     targetCompatibility = JavaVersion.toVersion("17")
+}
+
+apply plugin: 'java'
+
+javadoc {
+    source = mainClassName
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
 }
 
 micronaut {
