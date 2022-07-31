@@ -2,13 +2,14 @@ package word;
 
 import file.Reader;
 import file.Writer;
+import game.Game;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import picocli.CommandLine;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Singleton
 public class Word {
@@ -28,6 +29,11 @@ public class Word {
     }
 
     public WordDto getScrambledWord(String[] words) {
+        words = Stream.of(words)
+                .filter(str -> str.length() >= wordLength
+                        && !str.contains("'"))
+                .collect(Collectors.toSet())
+                .toArray(new String[0]);
         var word = getRandomWord(words);
         var scrambledWord = scrambleWord(word);
 
@@ -41,38 +47,84 @@ public class Word {
                 .toArray(String[]::new);
     }
 
-    public void unscrambleWord(WordDto wordDto) {
+    private Game Valid(WordDto wordDto, Scanner scanner, Game game) {
+        var valid = validateIfEqual(wordDto.word, wordDto.scrambledWord);
+        return validMessage(valid, game);
+    }
+
+    private Game validMessage(Boolean valid, Game game) {
+        if (valid) {
+            game.finished = true;
+            game.quitting = false;
+            writer.write("Congratulations! You unscrambled the word project in " + game.numberOfAttempts + " steps." +
+                    " You used " + game.numberOfHints + " hints.");
+            game.numberOfAttempts = 0;
+        } else {
+            game.numberOfAttempts++;
+        }
+
+        return game;
+    }
+
+    public Game unscrambleWord(WordDto wordDto) {
 
         var scanner = new Scanner(System.in);
-        var finished = false;
-        writer.write(wordDto.scrambledWord);
+        var game = new Game();
 
         do {
+            writer.write("You have used " + game.numberOfAttempts + " attempts with " + game.numberOfHints + " hints.");
+            writer.write("The scrambled word now is: ");
+            printPossibleInputOptions(wordDto.scrambledWord);
             writer.write("Enter 1 to swap a pair of letters.");
             writer.write("Enter 2 to solve.");
             writer.write("Enter 3 to quit.");
+            writer.write("Enter 4 to get a hint.");
+            writer.write("Enter 5 to get a new word.");
+            writer.write("Enter your choice: ");
             var choice = scanner.nextLine();
             try {
                 var intChoice = Integer.parseInt(choice);
                 switch (intChoice) {
                     case 1:
                         wordDto = swapLetters(wordDto, scanner);
+                        game = Valid(wordDto, scanner, game);
                         break;
                     case 2:
-                        validateIfEqual(wordDto, scanner);
-                        finished = true;
+                        var isValid = validateIfEqual(wordDto, scanner);
+                        validMessage(isValid, game);
                         break;
                     case 3:
-                        finished = true;
+                        game.finished = true;
+                        game.quitting = true;
                         writer.write("You chose to quit. The word was too difficult for you!");
-                        writer.write("The word was: " + wordDto.word);
+                        writer.write("The word was: " + wordDto.word + ".\n");
+                        break;
+                    case 4:
+                        writer.write("Get a hint!");
+                        game.numberOfHints = getAHint(wordDto, game.numberOfHints);
+                        break;
+                    case 5:
+                        game.finished = true;
+                        game.quitting = false;
+                        writer.write("You chose to get a new word. The word was too difficult for you!");
+                        writer.write("The word was: " + wordDto.word + ".\n");
                         break;
                 }
             } catch (Exception e) {
                 writer.write(e.toString());
                 writer.write("Invalid choice. Please enter a valid integer.");
             }
-        } while (!finished);
+
+            game.numberOfAttempts++;
+        } while (!game.finished);
+
+        return game;
+    }
+
+    private int getAHint(WordDto wordDto, int hints) {
+        var hint = wordDto.getWord().charAt(hints);
+        writer.write(hint + " is at position " + hints);
+        return ++hints;
     }
 
     private String scrambleWord(String word) {
@@ -144,7 +196,12 @@ public class Word {
         writer.write("Enter the word you think this is: ");
         var unscrambledWord = scanner.nextLine();
         var word = wordDto.getWord();
-        var wordsAreEqual = unscrambledWord.equalsIgnoreCase(word);
+        return validateIfEqual(unscrambledWord, word);
+    }
+
+    private boolean validateIfEqual(String currentWord, String validWord) {
+
+        var wordsAreEqual = currentWord.equalsIgnoreCase(validWord);
 
         if (wordsAreEqual) {
             writer.write("You solved the word!");

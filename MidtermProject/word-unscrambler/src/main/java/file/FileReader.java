@@ -2,7 +2,6 @@ package file;
 
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -15,7 +14,8 @@ public class FileReader implements Reader {
     private Writer writer;
 
     public Boolean exists(String name) {
-        var exists = new File(name).exists();
+        var file = new File(name);
+        var exists = file.exists();
 
         if (exists) {
             System.out.println("File exists. Reading...");
@@ -40,7 +40,7 @@ public class FileReader implements Reader {
             }
             scanner.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            System.out.println("An error occurred:");
             e.printStackTrace();
         }
 
