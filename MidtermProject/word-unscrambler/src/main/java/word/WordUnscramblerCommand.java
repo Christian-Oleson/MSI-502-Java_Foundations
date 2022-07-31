@@ -12,7 +12,9 @@ import jakarta.inject.Inject;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-/**
+/** Christian Oleson
+ * MSI-503
+ * Assignment 3
  * @author Christian Oleson
  * @version 1.0
  * The main class that runs the game. This class is the entry point for the application.
