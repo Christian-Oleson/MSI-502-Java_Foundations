@@ -69,7 +69,7 @@ public class OlesonChristian_unscrambler implements Runnable {
     /**
      * The micronaut run method. This is the secondary entry point for the application. Here I left the business logic
      * to determine if the user passed in a file or not. If they did, I read the file and use it. If they did not, I read
-     * the words from the github API. I then run the game. The user chooses to play or quit. If the user chooses to play,
+     * the words from the GitHub API. I then run the game. The user chooses to play or quit. If the user chooses to play,
      * I ask the user to unscramble the word. The user can choose to move a letter at a time, solve the entire word,
      * quit, get a hint, or get a new word entirely.
      */
