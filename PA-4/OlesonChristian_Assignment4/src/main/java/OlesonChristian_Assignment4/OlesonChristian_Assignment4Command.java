@@ -20,7 +20,12 @@ public class OlesonChristian_Assignment4Command implements Runnable {
 
     /**
      * Run the application. This is the main entrypoint of the Micronaut CLI application. Here we request input from the
-     * user and pass it to the application. Then, we process the results and display them to the user.
+     * user and pass it to the application. Then, we process the results and display them to the user. While we have
+     * individual methods that do work, this is essentially the business logic of the application. Likewise, if the
+     * user at any point inputs anything aside from an integer, we will throw an exception. The requirements say nothing
+     * about supporting error handling. In the end, we are just trying to make the application as simple as possible.
+     * However, in the future we could iterate on this by wrapping the application in a try/catch block and handling
+     * the error, hopefully just requesting the input be correct.
      */
     public void run() {
         var scanner = new Scanner(System.in);
@@ -36,8 +41,9 @@ public class OlesonChristian_Assignment4Command implements Runnable {
     }
 
     /**
-     * Request an array of float from the user. While we are requesting integer values, we cast them to decimal values.
-     * This helps keep the results more precise.
+     * Requests the array values from the user, depending on the initial input indicating how long the array will be.
+     * While we are requesting integer values, we cast them to decimal values, helps keep the results more precise and
+     * also meets the requirements of the assignment.
      * @param numberArray
      * @param scanner
      * @return

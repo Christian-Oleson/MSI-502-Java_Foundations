@@ -27,6 +27,10 @@ application {
     mainClass.set("OlesonChristian_Assignment4.OlesonChristian_Assignment4Command")
 }
 
+javadoc {
+    source = "OlesonChristian_Assignment4.OlesonChristian_Assignment4Command"
+}
+
 java {
     sourceCompatibility = JavaVersion.toVersion("17")
     targetCompatibility = JavaVersion.toVersion("17")
