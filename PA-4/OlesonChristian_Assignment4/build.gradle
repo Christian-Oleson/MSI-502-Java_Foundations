@@ -12,15 +12,12 @@ repositories {
 dependencies {
     testImplementation 'junit:junit:4.13.2'
     annotationProcessor("info.picocli:picocli-codegen")
-    annotationProcessor("io.micronaut:micronaut-http-validation")
     implementation("info.picocli:picocli")
-    implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-jackson-databind")
     implementation("io.micronaut.picocli:micronaut-picocli")
     implementation("jakarta.annotation:jakarta.annotation-api")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
-
 }
 
 application {

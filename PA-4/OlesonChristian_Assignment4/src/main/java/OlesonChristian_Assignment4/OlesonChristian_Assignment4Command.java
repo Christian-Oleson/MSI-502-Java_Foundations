@@ -2,7 +2,6 @@ package OlesonChristian_Assignment4;
 
 import io.micronaut.configuration.picocli.PicocliRunner;
 import picocli.CommandLine;
-
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
