@@ -19,21 +19,20 @@ dependencies {
     implementation("jakarta.annotation:jakarta.annotation-api")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
-
-    testImplementation("io.micronaut:micronaut-http-client")
 }
 
 
 application {
     mainClass.set("OlesonChristian_Rectangle.OlesonChristian_RectangleCommand")
 }
+
 java {
-    sourceCompatibility = JavaVersion.toVersion("11")
-    targetCompatibility = JavaVersion.toVersion("11")
+    sourceCompatibility = JavaVersion.toVersion("17")
+    targetCompatibility = JavaVersion.toVersion("17")
 }
 
 micronaut {
-    testRuntime("junit5")
+    testRuntime("junit4")
     processing {
         incremental(true)
         annotations("OlesonChristian_Rectangle.*")
