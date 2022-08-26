@@ -2,7 +2,8 @@ package OlesonChristian_Rectangle;
 
 import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static junit.framework.TestCase.assertEquals;
+
 
 public class RectPrismTests {
 
@@ -72,7 +73,7 @@ public class RectPrismTests {
         final int width = 10;
         final int depth = 10;
         var rectPrism = new RectPrism(height, width, depth);
-        var expectedString = "RectPrism[height=" + height + ", width=" + width + ", depth=" + depth + "]";
+        var expectedString = "RectPrism[\n\theight = " + height + ", \n\twidth = " + width + ", \n\tdepth = " + depth + "\n]";
 
         // Act
         var result = rectPrism.toString();

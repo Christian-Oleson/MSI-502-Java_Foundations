@@ -2,7 +2,7 @@ package OlesonChristian_Rectangle;
 
 import java.util.Arrays;
 
-/* Demo class
+/** Demo class
 * @author Christian Oleson
 * @version 1.0
 * Demos the Rectangle and RectPrism classes, showing off all methods, getters, and setters.
@@ -44,9 +44,9 @@ public class Demo {
         }
     }
 
-    /* Prints the values of the rectangle.
+    /** Prints the values of the rectangle.
      * @param rectangle The rectangle to print the values of.
-     * @param message The message to print before the values of the rectangle.
+     * @param type The message to print before the values of the rectangle.
      */
     private static void printValuesOfRectangle(Rectangle rectangle, String type) {
         System.out.println(type + " Surface Area: " + rectangle.computeSurfaceArea());

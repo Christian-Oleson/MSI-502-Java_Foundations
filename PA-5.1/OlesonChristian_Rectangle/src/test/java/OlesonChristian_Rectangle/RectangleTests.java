@@ -2,7 +2,7 @@ package OlesonChristian_Rectangle;
 
 import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class RectangleTests {
 
@@ -55,7 +55,7 @@ public class RectangleTests {
         final int height = 10;
         final int width = 10;
         var rectangle = new Rectangle(height, width);
-        var expectedString = "Rectangle[height=" + height + ", width=" + width + "]";
+        var expectedString = "Rectangle [\n\theight = " + height + ", \n\twidth = " + width + "\n]";
 
         // Act
         var result = rectangle.toString();
