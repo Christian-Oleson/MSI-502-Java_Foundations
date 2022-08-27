@@ -1,4 +1,4 @@
-package OlesonChristian_5_1;
+package OlesonChristian_5_2;
 
 import io.micronaut.configuration.picocli.PicocliRunner;
 import picocli.CommandLine.Command;
@@ -6,13 +6,11 @@ import picocli.CommandLine.Command;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static java.lang.System.in;
-
 /** Christian Oleson
  * MSI-503
  * Assignment 5.2
  */
-@Command(name = "OlesonChristian_5_1", description = "...",
+@Command(name = "OlesonChristian_5_2", description = "...",
         mixinStandardHelpOptions = true)
 public class OlesonChristian_5_2Command implements Runnable {
 

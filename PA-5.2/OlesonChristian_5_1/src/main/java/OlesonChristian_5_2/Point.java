@@ -1,4 +1,4 @@
-package OlesonChristian_5_1;
+package OlesonChristian_5_2;
 
 // Create a class Point. Points are described as having an (x,y) location.
 // Instance variables should be private.

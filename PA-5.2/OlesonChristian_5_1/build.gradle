@@ -3,8 +3,7 @@ plugins {
     id("io.micronaut.application") version "3.5.1"
 }
 
-version = "0.1"
-group = "OlesonChristian_5_1"
+group = "OlesonChristian_5_2"
 
 repositories {
     mavenCentral()
@@ -25,7 +24,7 @@ dependencies {
 
 
 application {
-    mainClass.set("OlesonChristian_5_1.OlesonChristian_5_1Command")
+    mainClass.set("OlesonChristian_5_2.OlesonChristian_5_2Command")
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("11")
@@ -36,7 +35,7 @@ micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("OlesonChristian_5_1.*")
+        annotations("OlesonChristian_5_2.*")
     }
 }
 

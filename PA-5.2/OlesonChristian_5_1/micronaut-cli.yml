@@ -1,5 +1,5 @@
 applicationType: cli
-defaultPackage: OlesonChristian_5_1
+defaultPackage: OlesonChristian_5_2
 testFramework: junit
 sourceLanguage: java
 buildTool: gradle

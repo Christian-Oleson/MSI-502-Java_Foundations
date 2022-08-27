@@ -1,4 +1,4 @@
-package OlesonChristian_5_1;
+package OlesonChristian_5_2;
 
 // Write a class Circle. Since circles are described by a center point and a radius,
 // the Circle class should extend the Point class. You need to add a private double for the radius.
