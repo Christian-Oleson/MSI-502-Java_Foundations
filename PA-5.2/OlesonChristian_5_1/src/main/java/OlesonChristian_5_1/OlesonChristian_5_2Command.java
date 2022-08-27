@@ -14,26 +14,29 @@ import static java.lang.System.in;
  */
 @Command(name = "OlesonChristian_5_1", description = "...",
         mixinStandardHelpOptions = true)
-public class OlesonChristian_5_1Command implements Runnable {
+public class OlesonChristian_5_2Command implements Runnable {
 
     public static void main(String[] args) throws Exception {
-        PicocliRunner.run(OlesonChristian_5_1Command.class, args);
+        PicocliRunner.run(OlesonChristian_5_2Command.class, args);
     }
 
+    /** The runner method
+     */
     public void run() {
 
-        var scanner = new Scanner(in);
+        var scanner = new Scanner(System.in);
         var points = new ArrayList<Point>();
+        System.out.println("Please input the coordinates in the format: X Y Radius Height");
+        System.out.println("Use a single space between values.");
 
         for (int i = 0; i < 3; i++) {
-            System.out.println("X Coordinate: ");
-            var x = scanner.nextInt();
-            System.out.println("Y Coordinate: ");
-            var y = scanner.nextInt();
-            System.out.println("Radius: ");
-            var radius = scanner.nextDouble();
-            System.out.println("Height: ");
-            var height = scanner.nextDouble();
+            System.out.println("Value # " + (i + 1));
+            var input = scanner.nextLine();
+            var values = input.split("\\s", 5);
+            var x = Integer.parseInt(values[0]);
+            var y = Integer.parseInt(values[1]);
+            var radius = Double.parseDouble(values[2]);
+            var height = Double.parseDouble(values[3]);
             var point = new Point(x, y);
             var circle = new Circle(x, y, radius);
             var cylinder = new Cylinder(x, y, radius, height);
