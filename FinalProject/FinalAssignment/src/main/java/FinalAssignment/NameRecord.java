@@ -1,6 +1,7 @@
 package FinalAssignment;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class NameRecord {
     private String _name;
@@ -15,44 +16,79 @@ public class NameRecord {
         splitInput(_nameRecordString);
     }
 
+    /**
+     * Gets the name of the current record
+     * @return String name
+     */
     public String getName() {
         return _name;
     }
 
+    /**
+     * Gets the rank of the name for the decade provided
+     * @param decade
+     * @return int rank of the decade provided
+     */
     public int getRank(int decade) {
         return _nameRecordHashMap.get(decade);
     }
 
+    public BestRankYear getBestRank() {
+        var best = best();
+
+        return new BestRankYear(best.getKey(), best.getValue());
+    }
+
+    public class BestRankYear {
+        public int _bestRank;
+        public int _bestRankYear;
+
+        private BestRankYear(int bestRank, int bestRankYear) {
+            _bestRank = bestRank;
+            _bestRankYear = bestRankYear;
+        }
+    }
+
+    /**
+     * Gets a hash map of the name record
+     * @return HashMap<Integer, Integer>
+     */
     public HashMap<Integer, Integer> getNameRecordHashMap() {
         return _nameRecordHashMap;
     }
 
-    public int bestYear() {
+    /**
+     * The best year for the name
+     * @return int best year
+     */
+    public int bestDecade() {
+        return best()
+                .getKey();
+    }
+
+    private Map.Entry<Integer, Integer> best() {
+
         return _nameRecordHashMap
                 .entrySet()
                 .stream()
                 .max((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1)
-                .get()
-                .getKey();
+                .get();
     }
 
     public void plot() {
         var stdDraw = new StdDraw();
-        stdDraw.
     }
 
     private void splitInput(String input) {
         var splitter = input.split(" ");
         var mutableFirstYear = START;
+        _name = splitter[0];
 
         for (var i = 0; i < splitter.length; i++) {
             if(i != 0) {
                 _nameRecordHashMap.put(mutableFirstYear, Integer.parseInt(splitter[i]));
-            } else {
-                _name = splitter[i];
+                mutableFirstYear += 10;
             }
-
-            mutableFirstYear += 10;
         }
     }
 }
