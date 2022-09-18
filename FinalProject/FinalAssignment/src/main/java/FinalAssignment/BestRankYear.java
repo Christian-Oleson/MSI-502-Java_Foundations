@@ -4,7 +4,7 @@ public class BestRankYear {
     private int _bestRank;
     private int _bestRankYear;
 
-    public BestRankYear(int bestRank, int bestRankYear) {
+    public BestRankYear(int bestRankYear, int bestRank) {
         _bestRank = bestRank;
         _bestRankYear = bestRankYear;
     }

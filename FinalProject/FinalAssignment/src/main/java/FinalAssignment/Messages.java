@@ -11,4 +11,6 @@ public class Messages {
     public static final String NAME_PROMPT = "Enter the name for which you want data:";
 
     public static final String INVALID_INPUT = "Not a valid selection. Please input an integer";
+
+    public static final String NAME_NOT_FOUND_EXCEPTION = "Cannot invoke \"FinalAssignment.NameRecord.bestYear()\" because the return value of \"java.util.HashMap.get(Object)\" is null";
 }

@@ -10,6 +10,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * @author Christian Oleson
+ * A name surfer class that is responsible for the logic of user interaction, e.g. surfing for baby names.
+ */
 public class NameSurfer {
 
     /**
@@ -106,13 +110,13 @@ public class NameSurfer {
             switch (input) {
                 case 1:
                     name = getNameFromUser();
-                    var bestDecade = _nameRecords.get(name.toLowerCase()).bestDecade();
+                    var bestDecade = _nameRecords.get(name.toLowerCase()).bestYear();
                     System.out.println("The best year for " + name + " was the year " + bestDecade);
                     main();
                     break;
                 case 2:
                     name = getNameFromUser();
-                    var bestRank = _nameRecords.get(name.toLowerCase()).getBestRank();
+                    var bestRank = _nameRecords.get(name.toLowerCase()).getBestRankYear();
                     System.out.println("The best rank for the name " + name + " was " + bestRank.getBestRank() + " in the year of " + bestRank.getBestYear());
                     main();
                     break;
@@ -131,6 +135,8 @@ public class NameSurfer {
                 default:
                     break;
             }
+        } catch (NullPointerException npe) {
+            System.out.println("The name " + name + " was not found in the Census data.");
         } catch (Exception e) {
             System.out.println(e);
         } finally {
