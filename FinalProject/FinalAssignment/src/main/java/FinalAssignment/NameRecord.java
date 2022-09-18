@@ -1,6 +1,5 @@
 package FinalAssignment;
 
-import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,6 +9,7 @@ public class NameRecord {
     private HashMap<Integer, Integer> _nameRecordHashMap;
     private final int START = 1900;
     private final int DECADES = 11;
+    private StdDraw _stdDraw;
 
     public NameRecord(String nameRecordString) {
         _nameRecordString = nameRecordString;
@@ -34,20 +34,14 @@ public class NameRecord {
         return _nameRecordHashMap.get(decade);
     }
 
+    /**
+     * Gets the best rank for a given name
+     * @return BestRankYear a DTO with the best rank and best year for a given baby name
+     */
     public BestRankYear getBestRank() {
         var best = best();
 
         return new BestRankYear(best.getKey(), best.getValue());
-    }
-
-    public class BestRankYear {
-        public int _bestRank;
-        public int _bestRankYear;
-
-        private BestRankYear(int bestRank, int bestRankYear) {
-            _bestRank = bestRank;
-            _bestRankYear = bestRankYear;
-        }
     }
 
     /**
@@ -67,6 +61,10 @@ public class NameRecord {
                 .getKey();
     }
 
+    /**
+     * Uses a Java stream to get the maximum value and corresponding year for a baby name.
+     * @return Map.Entry<Integer, Integer> a hash map entry of the year (key) and rank (value)
+     */
     private Map.Entry<Integer, Integer> best() {
 
         return _nameRecordHashMap
@@ -76,31 +74,38 @@ public class NameRecord {
                 .get();
     }
 
+    /**
+     * Plots the rank of a baby name over 11 decades, starting with 1900
+     */
     public void plot() {
-        int n = 8;
-        int width = 300;
-        int height = 300;
-        int circle_x = width / n / 2;
-        int circle_y = height / n / 2;
-        int radius = 300 / n / 2;
+        int width = 500;
+        int height = 500;
 
         StdDraw.setCanvasSize(width, height);
-        StdDraw.setXscale(0, 300);
-        StdDraw.setYscale(0, 300);
-        StdDraw.setPenRadius(0.002);
-        StdDraw.setPenColor(Color.blue);
+        StdDraw.setXscale(START - 10, START + (10 * DECADES) + 10);
+        StdDraw.setYscale(-10, 2000);
+        StdDraw.setPenRadius(0.015);
+        StdDraw.setPenColor(Color.getRandomColor());
 
-        StdDraw.circle(circle_x, circle_y, radius);
-        StdDraw.setPenRadius(0.05);
-        StdDraw.point(0.5, 0.5);
-        StdDraw.line(0.2, 0.2, 0.8, 0.2);
-        StdDraw.show();
+        if (_nameRecordHashMap == null)
+        {
+            return;
+        }
+
+        _nameRecordHashMap.forEach((nameRecordKey, nameRecordValue) -> StdDraw.point(nameRecordKey, nameRecordValue));
+        StdDraw.text(1950, START + (10 * DECADES) - 100, _name);
     }
 
+    /**
+     * Tales the input of a line found from the baby name data from the census and splits it on spaces.
+     * The first value is the name, with the subsequent values being the rank for each decade.
+     * @param input a line of data from the census in the following form
+     *              Christian 297 434 603 617 621 392 253 117 90 33 22
+     */
     private void splitInput(String input) {
         var splitter = input.split(" ");
         var mutableFirstYear = START;
-        _name = splitter[0];
+        _name = splitter[0].toLowerCase();
 
         for (var i = 0; i < splitter.length; i++) {
             if(i != 0) {
