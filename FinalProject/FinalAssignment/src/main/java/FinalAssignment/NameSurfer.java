@@ -97,6 +97,7 @@ public class NameSurfer {
                 break;
             case 3:
                 name = getNameFromUser();
+                _nameRecords.get(name.toLowerCase()).plot();
                 break;
             case 4:
                 StdDraw.clear();

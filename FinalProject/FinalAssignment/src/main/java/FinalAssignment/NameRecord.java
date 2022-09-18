@@ -1,5 +1,6 @@
 package FinalAssignment;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -76,7 +77,24 @@ public class NameRecord {
     }
 
     public void plot() {
-        var stdDraw = new StdDraw();
+        int n = 8;
+        int width = 300;
+        int height = 300;
+        int circle_x = width / n / 2;
+        int circle_y = height / n / 2;
+        int radius = 300 / n / 2;
+
+        StdDraw.setCanvasSize(width, height);
+        StdDraw.setXscale(0, 300);
+        StdDraw.setYscale(0, 300);
+        StdDraw.setPenRadius(0.002);
+        StdDraw.setPenColor(Color.blue);
+
+        StdDraw.circle(circle_x, circle_y, radius);
+        StdDraw.setPenRadius(0.05);
+        StdDraw.point(0.5, 0.5);
+        StdDraw.line(0.2, 0.2, 0.8, 0.2);
+        StdDraw.show();
     }
 
     private void splitInput(String input) {
