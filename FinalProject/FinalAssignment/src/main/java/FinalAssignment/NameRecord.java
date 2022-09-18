@@ -1,7 +1,5 @@
 package FinalAssignment;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -73,7 +71,7 @@ public class NameRecord {
      * Gets a hash map of the name record
      * @return HashMap<Integer, Integer>
      */
-    public HashMap<Integer, Integer> getNameRecordHashMap() {
+    public Map<Integer, Integer> getNameRecordHashMap() {
         return _nameRecordHashMap;
     }
 

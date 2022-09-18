@@ -49,7 +49,7 @@ public class NameSurfer {
     /**
      * Don't trust a user to input what you need safely. Instead, let's make sure it is parseable and, if not
      * we want to display the problem to the user by returning the default integer (0).
-     * @return
+     * @return Integer value input or 0 if not parseable
      */
     private Integer tryParseInteger() {
         var scanner = new Scanner(System.in);
@@ -83,8 +83,6 @@ public class NameSurfer {
     /**
      * Takes the string array of the name records found online and iterates over the array, producing a hash map of
      * names and their name records.
-     * @param nameRecordStringArray
-     * @return
      */
     private HashMap<String, NameRecord> convertStringArrayToNameRecords(String[] nameRecordStringArray) {
         var nameHashMap = new HashMap<String, NameRecord>();
@@ -108,32 +106,25 @@ public class NameSurfer {
         var runAgain = true;
         try {
             switch (input) {
-                case 1:
+                case 1 -> {
                     name = getNameFromUser();
                     var bestDecade = _nameRecords.get(name.toLowerCase()).bestYear();
                     System.out.println("The best year for " + name + " was the year " + bestDecade);
-                    main();
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     name = getNameFromUser();
                     var bestRank = _nameRecords.get(name.toLowerCase()).getBestRankYear();
                     System.out.println("The best rank for the name " + name + " was " + bestRank.getBestRank() + " in the year of " + bestRank.getBestYear());
-                    main();
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     name = getNameFromUser();
                     _nameRecords.get(name.toLowerCase()).plot();
-                    main();
-                    break;
-                case 4:
+                }
+                case 4 -> {
                     StdDraw.clear();
-                    main();
-                    break;
-                case 5:
-                    runAgain = false;
-                    break;
-                default:
-                    break;
+                }
+                case 5 -> runAgain = false;
+                default -> System.out.println("Not a valid input. Please try again.");
             }
         } catch (NullPointerException npe) {
             System.out.println("The name " + name + " was not found in the Census data.");
@@ -142,6 +133,8 @@ public class NameSurfer {
         } finally {
             if (runAgain) {
                 main();
+            } else {
+                System.out.println("Now quitting the application...");
             }
         }
     }

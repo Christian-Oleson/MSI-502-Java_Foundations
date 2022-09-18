@@ -7,6 +7,8 @@ import java.util.Random;
  */
 public class Color {
 
+    private Color() {}
+
     /**
      * Randomly selects the major colors found in the java.awt.Color class
      */
@@ -15,31 +17,19 @@ public class Color {
         var random = new Random();
         var randomNum = random.nextInt(upperBound);
 
-        switch (randomNum) {
-            case 1:
-                return java.awt.Color.black;
-            case 2:
-                return java.awt.Color.blue;
-            case 3:
-                return java.awt.Color.cyan;
-            case 4:
-                return java.awt.Color.darkGray;
-            case 5:
-                return java.awt.Color.gray;
-            case 6:
-                return java.awt.Color.green;
-            case 7:
-                return java.awt.Color.magenta;
-            case 8:
-                return java.awt.Color.orange;
-            case 9:
-                return java.awt.Color.pink;
-            case 10:
-                return java.awt.Color.red;
-            case 11:
-                return java.awt.Color.yellow;
-            default:
-                return java.awt.Color.lightGray;
-        }
+        return switch (randomNum) {
+            case 1 -> java.awt.Color.black;
+            case 2 -> java.awt.Color.blue;
+            case 3 -> java.awt.Color.cyan;
+            case 4 -> java.awt.Color.darkGray;
+            case 5 -> java.awt.Color.gray;
+            case 6 -> java.awt.Color.green;
+            case 7 -> java.awt.Color.magenta;
+            case 8 -> java.awt.Color.orange;
+            case 9 -> java.awt.Color.pink;
+            case 10 -> java.awt.Color.red;
+            case 11 -> java.awt.Color.yellow;
+            default -> java.awt.Color.lightGray;
+        };
     }
 }

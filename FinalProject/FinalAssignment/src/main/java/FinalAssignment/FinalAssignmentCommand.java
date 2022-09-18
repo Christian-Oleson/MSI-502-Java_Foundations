@@ -16,10 +16,6 @@ public class FinalAssignmentCommand implements Runnable {
     }
 
     public void run() {
-        try {
-            nameSurfer.main();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        nameSurfer.main();
     }
 }

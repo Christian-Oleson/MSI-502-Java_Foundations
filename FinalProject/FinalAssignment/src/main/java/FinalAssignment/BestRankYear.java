@@ -1,8 +1,8 @@
 package FinalAssignment;
 
 public class BestRankYear {
-    private int _bestRank;
-    private int _bestRankYear;
+    private final int _bestRank;
+    private final int _bestRankYear;
 
     public BestRankYear(int bestRankYear, int bestRank) {
         _bestRank = bestRank;
