@@ -1,0 +1,45 @@
+plugins {
+    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("io.micronaut.application") version "3.5.1"
+}
+
+group = "OlesonChristian_FinalProject"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    annotationProcessor("info.picocli:picocli-codegen")
+    annotationProcessor("io.micronaut:micronaut-http-validation")
+    implementation("info.picocli:picocli")
+    implementation("io.micronaut:micronaut-http-client")
+    implementation("io.micronaut:micronaut-jackson-databind")
+    implementation("io.micronaut.picocli:micronaut-picocli")
+    implementation("jakarta.annotation:jakarta.annotation-api")
+    runtimeOnly("ch.qos.logback:logback-classic")
+    implementation("io.micronaut:micronaut-validation")
+    testImplementation('org.junit.jupiter:junit-jupiter-params:5.9.0')
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-params:5.6.2")
+}
+
+application {
+    mainClass.set("OlesonChristian_FinalProject.OlesonChristian_FinalProject")
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion("17")
+    targetCompatibility = JavaVersion.toVersion("17")
+}
+
+micronaut {
+    testRuntime("junit5")
+    processing {
+        incremental(true)
+        annotations("OlesonChristian_FinalProject.*")
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
