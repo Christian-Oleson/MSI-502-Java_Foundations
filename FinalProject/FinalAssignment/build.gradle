@@ -3,7 +3,7 @@ plugins {
     id("io.micronaut.application") version "3.5.1"
 }
 
-group = "FinalAssignment"
+group = "OlesonChristian_FinalProject"
 
 repositories {
     mavenCentral()
@@ -24,7 +24,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("FinalAssignment.FinalAssignmentCommand")
+    mainClass.set("OlesonChristian_FinalProject.OlesonChristian_FinalProject")
 }
 
 java {
@@ -36,7 +36,7 @@ micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("FinalAssignment.*")
+        annotations("OlesonChristian_FinalProject.*")
     }
 }
 

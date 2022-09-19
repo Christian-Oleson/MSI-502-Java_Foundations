@@ -1,4 +1,4 @@
-package FinalAssignment;
+package OlesonChristian_FinalProject;
 
 /**
  * A class of string messages

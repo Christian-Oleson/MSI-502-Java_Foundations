@@ -1,8 +1,9 @@
-package FinalAssignment;
+package OlesonChristian_FinalProject;
 
 import java.util.Random;
 
 /**
+ * @author Christian Oleson
  * A class to extend the Java.Awt.Color class without inheritance.
  */
 public class Color {

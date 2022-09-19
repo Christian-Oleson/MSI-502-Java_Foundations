@@ -24,7 +24,7 @@
  *       images and strings
  *
  ******************************************************************************/
-package FinalAssignment;
+package OlesonChristian_FinalProject;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

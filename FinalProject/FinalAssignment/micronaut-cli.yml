@@ -1,5 +1,5 @@
 applicationType: cli
-defaultPackage: FinalAssignment
+defaultPackage: OlesonChristian_FinalProject
 testFramework: junit
 sourceLanguage: java
 buildTool: gradle

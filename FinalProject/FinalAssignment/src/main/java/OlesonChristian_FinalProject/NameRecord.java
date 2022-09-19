@@ -1,4 +1,4 @@
-package FinalAssignment;
+package OlesonChristian_FinalProject;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -90,7 +90,6 @@ public class NameRecord {
      * @return Map.Entry<Integer, Integer> a hash map entry of the year (key) and rank (value)
      */
     private Map.Entry<Integer, Integer> best() {
-
         return getNameRecordHashMap()
                 .entrySet()
                 .stream()
@@ -107,9 +106,9 @@ public class NameRecord {
             return;
         }
 
-        int width = 500;
-        int height = 500;
-        int yMin = -1500;
+        int width = 900;
+        int height = 900;
+        int yMin = -1100;
         int yMax = 0;
         int xMin = START - 5;
         int xMax = START + (10 * DECADES) + 5;
@@ -124,6 +123,13 @@ public class NameRecord {
         StdDraw.text(1950, -100, _name);
     }
 
+
+    /**
+     * If a value is a rank of 0, then it was unranked, so we need to set it to the minimum y value
+     * @param val input value
+     * @param yMin y minimum value
+     * @return int converted value
+     */
     private int convertZeroedValue(int val, int yMin) {
         if (val == 0) {
             return yMin;
