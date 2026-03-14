@@ -12,12 +12,10 @@ package OlesonChristian_5_2;
  */
 public class Cylinder extends Circle {
     private double _height;
-    private double _volume;
 
     public Cylinder(int x, int y, double radius, double height) {
         super(x, y, radius);
         _height = height;
-        _volume = calculateVolume();
     }
 
     /**
@@ -48,7 +46,7 @@ public class Cylinder extends Circle {
         return "Cylinder [\n\tx = " + getX()
                 + ", \n\ty = " + getY()
                 + ", \n\tradius = " + getRadius()
-                + ", \n\tvolume = " + _volume
+                + ", \n\tvolume = " + calculateVolume()
                 + ", \n\theight = " + _height + "\n]\n"
                 + super.toString();
     }

@@ -93,9 +93,9 @@ public class NameRecord {
         return getNameRecordHashMap()
                 .entrySet()
                 .stream()
-                .filter(entry1 -> entry1.getValue() > 0)
-                .min((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1)
-                .get();
+                .filter(entry -> entry.getValue() > 0)
+                .min(Map.Entry.comparingByValue())
+                .orElseThrow(() -> new java.util.NoSuchElementException("No ranked entries found for " + _name));
     }
 
     /**

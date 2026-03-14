@@ -34,8 +34,8 @@ public class Circle extends Point {
      * @param radius
      */
     public void setRadius(double radius) {
-        if (radius < 0){
-            System.out.println("All radii must be positive.");
+        if (radius < 0) {
+            throw new IllegalArgumentException("All radii must be positive.");
         }
 
         _radius = radius;

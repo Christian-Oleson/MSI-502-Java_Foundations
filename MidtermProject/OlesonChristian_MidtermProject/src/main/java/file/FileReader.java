@@ -5,6 +5,7 @@ import jakarta.inject.Singleton;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -18,20 +19,20 @@ public class FileReader implements Reader {
     @Inject
     private Writer writer;
 
-    public Boolean exists(String name) {
+    public boolean exists(String name) {
         var file = new File(name);
         var exists = file.exists();
 
         if (exists) {
-            System.out.println("File exists. Reading...");
+            writer.write("File exists. Reading...");
         } else {
-            System.out.println("File does not exist. Please enter a valid file ");
+            writer.write("File does not exist. Please enter a valid file ");
         }
 
         return exists;
     }
 
-    public ArrayList<String> readToEnd(String name) {
+    public List<String> readToEnd(String name) {
         var wordList = new ArrayList<String>();
         try {
             var inputFile = new File(name);

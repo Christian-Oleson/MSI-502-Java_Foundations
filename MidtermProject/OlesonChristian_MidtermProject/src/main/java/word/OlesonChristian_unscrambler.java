@@ -94,9 +94,9 @@ public class OlesonChristian_unscrambler implements Runnable {
             writer.write("Starting a new game...");
             game = word.unscrambleWord(scrambledWord);
 
-            if (game.finished) {
+            if (game.isFinished()) {
                 scrambledWord = word.getScrambledWord(results);
             }
-        } while (!game.quitting);
+        } while (!game.isQuitting());
     }
 }

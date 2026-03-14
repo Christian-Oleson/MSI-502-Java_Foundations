@@ -52,11 +52,11 @@ public class Demo {
         System.out.println(type + " Surface Area: " + rectangle.computeSurfaceArea());
         System.out.println(type + " Height: " + rectangle.getHeight());
         System.out.println(type + " Width: " + rectangle.getWidth());
-        if (rectangle instanceof RectPrism) {
-            var depth = ((RectPrism) rectangle).getDepth();
+        if (rectangle instanceof RectPrism rectPrism) {
+            var depth = rectPrism.getDepth();
             System.out.println(type + " Depth: " + depth);
-            System.out.println(type + " Volume: " + ((RectPrism) rectangle).computeVolume());
-            ((RectPrism) rectangle).setDepth(depth * depth);
+            System.out.println(type + " Volume: " + rectPrism.computeVolume());
+            rectPrism.setDepth(depth * depth);
         }
     }
 }
