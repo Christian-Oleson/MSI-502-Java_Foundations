@@ -1,10 +1,5 @@
-plugins {
-    id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("io.micronaut.application") version "4.2.1"
-}
+apply plugin: 'java'
 
-// Include if you want a version
-// version = "0.1"
 group = "word"
 
 repositories {
@@ -12,45 +7,27 @@ repositories {
 }
 
 dependencies {
-    annotationProcessor("info.picocli:picocli-codegen")
-    annotationProcessor("io.micronaut:micronaut-http-validation")
-    implementation("info.picocli:picocli")
+    implementation platform("io.micronaut:micronaut-bom:3.8.9")
+
+    annotationProcessor("info.picocli:picocli-codegen:4.7.5")
+    annotationProcessor("io.micronaut:micronaut-http-validation:3.8.9")
+    implementation("info.picocli:picocli:4.7.5")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-jackson-databind")
-    implementation("io.micronaut.picocli:micronaut-picocli")
+    implementation("io.micronaut.picocli:micronaut-picocli:4.4.0")
     implementation("jakarta.annotation:jakarta.annotation-api")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
+
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.1")
 }
 
-mainClassName = "word.OlesonChristian_unscrambler"
-
-application {
-    mainClass.set(mainClassName)
+test {
+    useJUnitPlatform()
+    exclude '**/OlesonChristianunscramblerTest.class'
 }
 
 java {
     sourceCompatibility = JavaVersion.toVersion("21")
     targetCompatibility = JavaVersion.toVersion("21")
-}
-
-apply plugin: 'java'
-
-javadoc {
-    source = mainClassName
-}
-
-jar {
-    manifest {
-        attributes 'Main-Class': mainClassName
-    }
-    baseName("OlesonChristian_MidtermProject")
-}
-
-micronaut {
-    testRuntime("junit5")
-    processing {
-        incremental(true)
-        annotations("word.*")
-    }
 }
