@@ -1,6 +1,7 @@
 package OlesonChristian_FinalProject;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledIf;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -8,6 +9,11 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class NameRecordTests {
+
+    static boolean isHeadless() {
+        return java.awt.GraphicsEnvironment.isHeadless();
+    }
+
     private final NameRecord _sut;
 
     public NameRecordTests() {
@@ -75,6 +81,7 @@ class NameRecordTests {
         assertEquals(expectedRank, result);
     }
 
+    @DisabledIf("isHeadless")
     @ParameterizedTest
     @ValueSource(strings = {
             "Christel 0 0 0 0 0 0 0 943 0 0 0",
