@@ -1,2 +1,8 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
 rootProject.name="OlesonChristian_5_2"
 

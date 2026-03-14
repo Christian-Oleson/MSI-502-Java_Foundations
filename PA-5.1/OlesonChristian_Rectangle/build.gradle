@@ -1,7 +1,4 @@
-plugins {
-    id("com.github.johnrengelman.shadow") version "7.1.2"
-    id("io.micronaut.application") version "3.5.1"
-}
+apply plugin: 'java'
 
 version = "0.1"
 group = "OlesonChristian_Rectangle"
@@ -11,34 +8,25 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.13.2'
-    annotationProcessor("info.picocli:picocli-codegen")
-    implementation("info.picocli:picocli")
+    implementation platform("io.micronaut:micronaut-bom:3.8.9")
+
+    annotationProcessor("info.picocli:picocli-codegen:4.7.5")
+    implementation("info.picocli:picocli:4.7.5")
     implementation("io.micronaut:micronaut-jackson-databind")
-    implementation("io.micronaut.picocli:micronaut-picocli")
+    implementation("io.micronaut.picocli:micronaut-picocli:4.4.0")
     implementation("jakarta.annotation:jakarta.annotation-api")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
-}
 
-
-application {
-    mainClass.set("OlesonChristian_Rectangle.OlesonChristian_RectangleCommand")
-}
-
-java {
-    sourceCompatibility = JavaVersion.toVersion("17")
-    targetCompatibility = JavaVersion.toVersion("17")
-}
-
-micronaut {
-    testRuntime("junit4")
-    processing {
-        incremental(true)
-        annotations("OlesonChristian_Rectangle.*")
-    }
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.1")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 test {
     useJUnitPlatform()
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion("21")
+    targetCompatibility = JavaVersion.toVersion("21")
 }

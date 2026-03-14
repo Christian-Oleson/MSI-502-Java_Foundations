@@ -1,6 +1,6 @@
 package file;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Christian Oleson
@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * An interface for reading. Can be files, databases, RESTful APIs, etc.
  */
 public interface Reader {
-    Boolean exists(String name);
-    ArrayList<String> readToEnd(String name);
+    boolean exists(String name);
+    List<String> readToEnd(String name);
     String getValidInput();
 }

@@ -1,7 +1,7 @@
 public class OlesonChristian_Checkup {
     private int _patientNumber;
-    public BloodPressure BloodPressure;
-    public Cholesterol Cholesterol;
+    private BloodPressure BloodPressure;
+    private Cholesterol Cholesterol;
 
     public OlesonChristian_Checkup(int patientNumber) {
         System.out.println("Creating new checkup for patient " + patientNumber);

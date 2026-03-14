@@ -1,7 +1,4 @@
-plugins {
-    id("com.github.johnrengelman.shadow") version "7.1.2"
-    id("io.micronaut.application") version "3.5.1"
-}
+apply plugin: 'java'
 
 group = "OlesonChristian_5_2"
 
@@ -10,34 +7,26 @@ repositories {
 }
 
 dependencies {
-    annotationProcessor("info.picocli:picocli-codegen")
-    implementation("info.picocli:picocli")
+    implementation platform("io.micronaut:micronaut-bom:3.8.9")
+
+    annotationProcessor("info.picocli:picocli-codegen:4.7.5")
+    implementation("info.picocli:picocli:4.7.5")
     implementation("io.micronaut:micronaut-jackson-databind")
-    implementation("io.micronaut.picocli:micronaut-picocli")
+    implementation("io.micronaut.picocli:micronaut-picocli:4.4.0")
     implementation("jakarta.annotation:jakarta.annotation-api")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
 
     testImplementation("io.micronaut:micronaut-http-client")
-
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.1")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
-
-application {
-    mainClass.set("OlesonChristian_5_2.OlesonChristian_5_2Command")
+test {
+    useJUnitPlatform()
 }
+
 java {
-    sourceCompatibility = JavaVersion.toVersion("11")
-    targetCompatibility = JavaVersion.toVersion("11")
+    sourceCompatibility = JavaVersion.toVersion("21")
+    targetCompatibility = JavaVersion.toVersion("21")
 }
-
-micronaut {
-    testRuntime("junit5")
-    processing {
-        incremental(true)
-        annotations("OlesonChristian_5_2.*")
-    }
-}
-
-
-

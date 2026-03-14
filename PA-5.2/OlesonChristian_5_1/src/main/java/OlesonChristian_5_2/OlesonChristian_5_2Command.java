@@ -44,8 +44,7 @@ public class OlesonChristian_5_2Command implements Runnable {
         }
 
         System.out.println("---------------------------------------------------------------------------------------------");
-        for (var point = points.iterator(); point.hasNext();) {
-            var item = point.next();
+        for (var item : points) {
             System.out.println("-------------------------------" + item.getClass() + "-------------------------------");
             System.out.println(item);
             System.out.println("---------------------------------------------------------------------------------------------");
